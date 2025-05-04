@@ -30,20 +30,112 @@ Untuk melakukan instalasi Codeigniter 4 dapat dilakukan dengan dua cara, yaitu c
 ### Contoh error yang terjadi. Untuk mencoba error tersebut, ubah kode pada file app/Controller/Home.php hilangkan titik koma pada akhir kode.
 ![gambar](ss_gambar_pemrograman_web2/ss4_tugas_pemrograman_web2.png)
 
+## Auto Routing
+### Tambahkan method baru pada Controller Page seperti berikut.
+```php
+public function tos()
+{
+echo "ini halaman Term of Services";
+}
+```
+### Method ini belum ada pada routing, sehingga cara mengaksesnya dengan menggunakan alamat: http://localhost:8080/page/tos
+![gambar](ss_gambar_pemrograman_web2/ss5_tugas_pemrograman_web2.png)
 
+## Membuat View
+### Selanjutnya adalam membuat view untuk tampilan web agar lebih menarik. Buat file baru dengan nama about.php pada direktori view (app/view/about.php) kemudian isi kodenya seperti berikut.
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $title; ?></title>
+</head>
+<body>
+    <h1><?= $title; ?></h1>
+    <hr>
+    <p><?= $content; ?></p>
+</body>
+</html>
 
+```
+### Ubah method about pada class Controller Page menjadi seperti berikut:
+```php
+public function about()
+{
+    return view('about', [
+        'title'   => 'Halaman Abot',
+        'content' => 'Ini adalah halaman about yang menjelaskan tentang isi halaman ini.'
+    ]);
+}
+```
 
+## Membuat Layout Web dengan CSS
+### Pada dasarnya layout web dengan css dapat diimplamentasikan dengan mudah pada codeigniter. Yang perlu diketahui adalah, pada Codeigniter 4 file yang menyimpan asset css dan javascript terletak pada direktori public.
+### Kemudian buat folder template pada direktori view kemudian buat file header.php dan footer.php
+#### File app/view/template/header.php
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $title; ?></title>
+    <link rel="stylesheet" href="<?= base_url('/style.css'); ?>">
+</head>
+<body>
+    <div id="container">
+    <header>
+      <h1>Layout Sederhana</h1>
+    </header>
+    <nav>
+    <a href="<?= base_url('/');?>" class="active">Home</a>
+    <a href="<?= base_url('/artikel');?>">Artikel</a>
+    <a href="<?= base_url('/about');?>">About</a>
+    <a href="<?= base_url('/contact');?>">Kontak</a>
+    </nav>
+    <section id="wrapper">
+      <section id="main">
+```
+#### File app/view/template/footer.php
+```php
+</section>
 
+<aside id="sidebar">
+    <div class="widget-box">
+        <h3 class="title">Widget Header</h3>
+        <ul>
+            <li><a href="#">Widget Link</a></li>
+            <li><a href="#">Widget Link</a></li>
+        </ul>
+    </div>
 
+    <div class="widget-box">
+        <h3 class="title">Widget Text</h3>
+        <p>Vestibulum lorem elit, iaculis in nisl volutpat, malesuada tincidunt arcu. Proin in leo fringilla, vestibulum mi porta, faucibus felis. Integer pharetra est nunc, nec pretium nunc pretium ac.</p>
+    </div>
+</aside>
 
+</section>
 
+<footer>
+    <p>&copy; 2025 - Universitas Pelita Bangsa</p>
+</footer>
 
+</div>
+</body>
+</html>
+```
+#### Kemudian ubah file app/view/about.php seperti berikut.
+```php
+<?= $this->include('template/header'); ?>
 
+<h1><?= $title; ?></h1>
+<hr>
+<p><?= $content; ?></p>
 
-
-
-
-
+<?= $this->include('template/footer'); ?>
+```
+### Selanjutnya refresh tampilan pada alamat http://localhost:8080/about
+![gambar](ss_gambar_pemrograman_web2/ss6_tugas_pemrograman_web2.png)
 
 
 
