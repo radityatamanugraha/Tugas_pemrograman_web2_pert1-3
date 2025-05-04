@@ -103,8 +103,8 @@ public function about()
     <div class="widget-box">
         <h3 class="title">Widget Header</h3>
         <ul>
-            <li><a href="#">Widget Link</a></li>
-            <li><a href="#">Widget Link</a></li>
+            <li><a href="#">Artikel kedua</a></li>
+            <li><a href="#">Artikel kesatu</a></li>
         </ul>
     </div>
 
