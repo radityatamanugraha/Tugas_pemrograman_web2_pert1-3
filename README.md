@@ -424,3 +424,19 @@ Kemudian buat view untuk form tambah dengan nama form_edit.php
 <?= $this->include('template/admin_footer'); ?>
 ```
 ![gambar](ss_gambar_pemrograman_web2/ss11_tugas_pemrograman_web2.png)
+
+# Praktikum 3: View Layout dan View Cell
+## Tujuan
+1. Memahami konsep View Layout di CodeIgniter 4.
+2. Menggunakan View Layout untuk membuat template tampilan.
+3. Memahami dan mengimplementasikan View Cell dalam CodeIgniter 4.
+4. Menggunakan View Cell untuk memanggil komponen UI secara modular.
+
+## Instruksi Praktikum
+1. Persiapkan text editor misalnya VSCode.
+2. Buka kembali folder dengan nama lab11_php_ci pada docroot webserver (htdocs)
+
+
+
+
+
